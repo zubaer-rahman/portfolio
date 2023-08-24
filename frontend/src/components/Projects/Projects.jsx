@@ -3,6 +3,7 @@ import "./Projects.css";
 import { Button, Typography } from "@mui/material";
 import { AiOutlineProject } from "react-icons/ai";
 import { Delete } from "@mui/icons-material";
+import { FaRegSmileWink } from "react-icons/fa";
 
 const ProjectCard = ({
   url,
@@ -52,6 +53,9 @@ const Projects = () => {
           />
         ))}
       </div>
+      <Typography variant="h3" style={{ font: "100 1.2rem 'Ubuntu Mono'" }}>
+        All The Projects Shown Above Are Made By Me <FaRegSmileWink />
+      </Typography>
     </div>
   );
 };

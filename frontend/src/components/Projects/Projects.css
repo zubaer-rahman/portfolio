@@ -3,6 +3,7 @@
   min-height: 100vh;
   padding-top: 15vmax;
 }
+
 .projects > h3 {
   text-align: center;
   color: rgb(255, 255, 255);
@@ -30,8 +31,10 @@
   flex-wrap: wrap;
   padding: 5vmax;
   padding-bottom: 10vmax;
+
   overflow-x: hidden;
 }
+
 .projectCard {
   width: 80%;
   text-decoration: none;
@@ -42,6 +45,12 @@
   transform: translateX(-100vw);
   animation: projectCardAnimation 1s ease-in-out forwards 0.5s;
 }
+.projectCard:nth-child(even) {
+  transform: translateX(100vw);
+  flex-direction: row-reverse;
+  animation: projectCardAnimation 1s ease-in-out forwards 1s;
+}
+
 .projectCard > div {
   width: 100%;
   display: flex;
@@ -51,6 +60,7 @@
   transition: all 0.5s;
   justify-content: space-around;
 }
+
 .projectCard > div:first-child::after {
   content: "VIEW DEMO";
   width: 100%;
@@ -58,6 +68,7 @@
   font: 100 2rem "Roboto";
   align-items: center;
   justify-content: center;
+  display: flex;
   background-color: hsl(250, 100%, 75%);
   color: white;
 }
@@ -65,12 +76,13 @@
   text-align: center;
   padding: 2vmax;
 }
-.projectCard > div:first-child > img {
-    width: inherit;
-  }
+.projectCard > div:last-child {
+  padding: 3vmax;
+}
 .projectCard > div:last-child > h4 {
   text-align: center;
 }
+
 .projectCard > div:last-child > p {
   letter-spacing: 5px;
   word-spacing: 5px;
@@ -81,17 +93,39 @@
   font-weight: bold;
   color: black;
 }
-.projectCard:nth-child(even) {
-  transform: translateX(100vw);
-  animation: projectCardAnimation 1s ease-in-out forwards 1s;
+.projectCard > div > img {
+  width: inherit;
 }
+
+.projectCard:hover div:first-child {
+  filter: hue-rotate(240deg) blur(4px);
+}
+
 @keyframes projectCardAnimation {
   to {
     transform: translateX(0);
   }
 }
+
 @keyframes projectHeadingAnimation {
   to {
     transform: translate(-50%, -50%);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .projectCard {
+    flex-direction: column;
+  }
+
+  .projectCard:nth-child(even) {
+    flex-direction: column;
+  }
+  .projectCard > div {
+    justify-content: center;
+  }
+
+  .projectCard > div:last-child > p {
+    text-align: center;
   }
 }
