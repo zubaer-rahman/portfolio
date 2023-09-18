@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
     select: false,
     required: [true, "Please Enter Password"],
   },
-  timeLine: [
+  timeline: [
     {
       title: String,
       description: String,
