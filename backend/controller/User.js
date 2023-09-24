@@ -6,12 +6,13 @@ import cloudinary from "cloudinary";
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
+
     const user = await User.findOne({ email, password });
 
     if (!user) {
       return res.status(400).json({
         success: false,
-        message: "Invalid Email or Password",
+        message: "Invalid email or password",
       });
     }
 

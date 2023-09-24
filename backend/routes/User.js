@@ -1,5 +1,5 @@
 import express from "express";
-import { addProject, addTimeline, addYoutube, deleteProject, deleteTimeline, deleteYoutube, getUser, login, logout, myProfile, updateUser } from "../controller/User.js";
+import { addProject, addTimeline, addYoutube, contact, deleteProject, deleteTimeline, deleteYoutube, getUser, login, logout, myProfile, updateUser } from "../controller/User.js";
 import { isAuthenticated } from "../middlewares/auth.js";
 
 export const userRouter = express.Router();
