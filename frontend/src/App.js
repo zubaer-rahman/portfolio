@@ -15,7 +15,7 @@ import { getUser } from "./actions/user";
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getUser());
+    dispatch(getUser()); 
   }, [dispatch])
   return (
     <Router>
