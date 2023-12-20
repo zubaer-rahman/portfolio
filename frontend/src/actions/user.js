@@ -48,7 +48,7 @@ export const login = (email, password) => async (dispatch) => {
     });
   }
 };
-export const loout = () => async (dispatch) => {
+export const logout = () => async (dispatch) => {
   try {
     dispatch({
       type: "LOGOUT_REQUEST",
@@ -63,6 +63,25 @@ export const loout = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: "LOGOUT_FAILURE",
+      payload: error.response.data.message,
+    });
+  }
+};
+export const loadUser = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: "LOAD_USER_REQUEST",
+    });
+
+    const { data } = await axios.get(
+      "/api/v1/me",);
+    dispatch({
+      type: "LOAD_USER_SUCCESS",
+      payload: data.user,
+    });
+  } catch (error) {
+    dispatch({
+      type: "LOAD_USER_FAILURE",
       payload: error.response.data.message,
     });
   }
